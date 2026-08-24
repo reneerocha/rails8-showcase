@@ -1,0 +1,7 @@
+<%= form_with model: task, id: "task_form", class: "space-y-4" do |f| %>
+  <div>
+    <%= f.label :title, "Título da Tarefa", class: "block text-sm font-semibold text-slate-300 mb-2" %>
+    <%= f.text_field :title, placeholder: "Ex: Processar Planilha de Leads, Gerar Relatório Anual...", class: "w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors" %>
+  </div>
+  <%= f.submit "Disparar Processamento", class: "w-full py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold transition-colors cursor-pointer shadow-lg shadow-indigo-600/20" %>
+<% end %>

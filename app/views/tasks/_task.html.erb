@@ -1,0 +1,24 @@
+<tr id="<%= dom_id(task) %>" class="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
+  <td class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-white">
+    <%= task.title %>
+  </td>
+  <td class="px-6 py-4 whitespace-nowrap">
+    <% status_colors = {
+      "pending" => "bg-amber-500/10 text-amber-400 border-amber-500/20",
+      "processing" => "bg-blue-500/10 text-blue-400 border-blue-500/20 animate-pulse",
+      "completed" => "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
+      "failed" => "bg-rose-500/10 text-rose-400 border-rose-500/20"
+    } %>
+    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold border <%= status_colors[task.status] %>">
+      <%= task.status.upcase %>
+    </span>
+  </td>
+  <td class="px-6 py-4 text-sm text-slate-300">
+    <div class="max-w-xs truncate" title="<%= task.result_summary %>">
+      <%= task.result_summary || "Aguardando processamento assíncrono..." %>
+    </div>
+  </td>
+  <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-400 font-mono text-right">
+    <%= task.processing_time_seconds ? "#{task.processing_time_seconds}s" : "-" %>
+  </td>
+</tr>
